@@ -1,0 +1,8 @@
+<h1> Your bookings </h1>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li> <%= booking.superpower %> </li>
+  <li> <%= "Rented from #{booking.superpower.user.username}" %> </li>
+  <li> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %></li>
+  <% end %>
+</ul>
