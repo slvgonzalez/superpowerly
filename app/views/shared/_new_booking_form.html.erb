@@ -1,0 +1,15 @@
+<% btn_toggle = controller_name == "bookmarks" ? %w[btn btn-flat d-none] : %w[btn btn-flat] %>
+<% form_toggle = controller_name == "bookmarks" ? "" : "d-none" %>
+
+<div class="row d-flex justify-content-center">
+  <div class="d-flex justify-content-end mx-5 mt-5 col-9" data-controller="toggle-form">
+    <div class="bmark-form">
+      <%= simple_form_for [@list, @bookmark], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.submit "Add Movie", class:"btn btn-primary" %>
+      <% end %>
+    </div>
+    <button class="<%=btn_toggle.join(" ")%>" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Add a movie</button>
+  </div>
+</div>
