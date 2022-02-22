@@ -23,19 +23,21 @@
       <% end %>
     <% end %>
     <%= yield %>
-    <footer>
-      <div class="footer">
-        <div class="footer-links">
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+    <% if action_name != "new" && (controller_name != "sessions" || controller_name != "passwords" || controller_name != "registrations")%>
+      <footer>
+        <div class="footer">
+          <div class="footer-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <div class="footer-copyright">
+          ©Superpowerly.com or whatever 2022
+          </div>
         </div>
-        <div class="footer-copyright">
-        ©Superpowerly.com or whatever 2022
-        </div>
-      </div>
-  </footer>
+      </footer>
+    <% end %>
   </body>
 </html>
