@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 aside {
-  margin: 3em;
+  padding: 3em;
 }
 
 .wrapper {
@@ -15,4 +15,12 @@ h3 {
   font-size: 24px;
   color: white;
   font-weight: bold;
+}
+
+.card-container {
+  height: 60vh;
+  width: 100vw;
+  margin: 0;
+  display:flex;
+  justify-content: space-around;
 }
