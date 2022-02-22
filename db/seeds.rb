@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#---------USERS
 (1..5).each do |n|
   user = User.new(
     username: "user#{n}",
@@ -15,4 +17,6 @@
   )
   user.save!
   puts "user #{n} created"
+  Superpower.create!(name: "invisibility#{n}", price: (30+n), description: "become invisible", user_id: user.id)
+  puts "superpower #{n} created"
 end
