@@ -13,8 +13,8 @@
   letter-spacing: 4px;
   overflow: hidden;
   margin-right: 50px;
-
 }
+
 .main-button:hover{
   background: $secondary-contrast;
   color: #050801;
@@ -104,4 +104,35 @@
   }
 }
 
-// NORMAL BUTTON
+// REGULAR BUTTON
+
+.regular-button{
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 20px 0;
+  color: $secondary-contrast;
+  text-decoration: none;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+//LINKS
+
+.link {
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  color: $secondary-contrast;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  text-decoration: underline;
+  color: $secondary-contrast;
+}
