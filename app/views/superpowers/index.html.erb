@@ -17,18 +17,17 @@
     <div class="col-">
       <h1>Superpowers</h1>
       <div class="container mt-5 p-3">
+      <%= link_to "Create a Superpower", new_superpower_path, class: "btn btn-ghost" %>
         <div class="row row-cols-2 mx-n5 justify-content-center">
           <% @superpowers.each do |superpower| %>
           <div class="col px-5 my-3">
             <div class="card-trip">
-            <h3><%= superpower.name %></h3>
-            <p><%= superpower.description %></p>
               <div class="card-trip-infos">
                 <div>
-                  <h2>Title here</h2>
-                  <p>Short description here!</p>
+                  <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
+                  <p><%= superpower.description %></p>
                 </div>
-                <h2 class="card-trip-pricing">£99.99</h2>
+                <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
                 <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
               </div>
             </div>
