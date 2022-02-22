@@ -10,5 +10,7 @@
     <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
+  <%= link_to "Book this superpower!", new_superpower_booking_path(@superpower), class: "btn btn-success" %>
   <%= link_to "Back", superpowers_path, class: "btn btn-ghost" %>
+
 </div>

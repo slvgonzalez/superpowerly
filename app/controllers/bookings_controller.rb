@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
       @user = current_user
       @bookings = Booking.where(user_id: @user)
     else
-      redirect_to root_path
+      redirect_to superpowers_path
     end
   end
 
