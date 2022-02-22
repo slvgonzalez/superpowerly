@@ -17,7 +17,7 @@ class SuperpowersController < ApplicationController
     @user = current_user
     @superpower.user = @user
     if @superpower.save!
-      redirect_to superpowers_path(@user)
+      redirect_to superpower_path(@superpower)
     else
       render :new
     end
