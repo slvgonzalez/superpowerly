@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
       @user = current_user
       redirect_to bookings_path
     else
-      render :new
+      render 'superpowers/show'
     end
   end
 

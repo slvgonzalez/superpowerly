@@ -1,16 +1,42 @@
 <%# navbar ------- %>
 
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @superpower.name %></h2>
-      <p><%= @superpower.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-  <%= link_to "Book this superpower!", new_superpower_booking_path(@superpower), class: "btn btn-success" %>
-  <%= link_to "Back", superpowers_path, class: "btn btn-ghost" %>
 
+<%# do not delete these 2 lines --------%>
+<% btn_toggle = controller_name == "bookings" ? %w[btn btn-flat d-none] : %w[btn btn-flat] %>
+<% form_toggle = controller_name == "bookings" ? "" : "d-none" %>
+
+<%# do not delete this condition --------%>
+<% if current_user.id == @superpower.user_id %>
+  <div class="bookings-container">
+    <h2> Error: You cannot double up your own superpower! :( </h2>
+    <%= link_to "Back to all superpowers", superpowers_path %>
+  </div>
+<% else %>
+  <%# do not delete data-controller--------%>
+  <div class="d-flex justify-content-end mx-5 mt-5 col-9" data-controller="toggle-form">
+  <%#-----------------%>
+    <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @superpower.name %></h2>
+          <p><%= @superpower.description %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+      <%# do not delete this button --------%>
+      <button class="<%=btn_toggle.join(" ")%>" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</button>
+      <%#-----------------%>
+      <%= link_to "Back", superpowers_path, class: "btn btn-ghost" %>
+    </div>
+      <%# do not delete this form --------%>
+      <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit "Add Booking", class:"btn btn-primary" %>
+      <% end %>
+      <%#-----------------%>
+  </div>
+  <% end %>
 </div>
