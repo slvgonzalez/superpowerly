@@ -15,6 +15,13 @@
   <body>
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
+    <% if controller_name != "registrations" && controller_name != "passwords" && controller_name != "sessions"%>
+      <% if user_signed_in? %>
+      <%= render 'shared/navbar' %>
+      <% else %>
+      <%= render 'shared/navbar_new' %>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
