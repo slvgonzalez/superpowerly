@@ -19,16 +19,20 @@
       <div class="container mt-5 p-3">
       <%= link_to "Create a Superpower", new_superpower_path, class: "btn btn-ghost" %>
         <div class="row row-cols-2 mx-n5 justify-content-center">
-          <% @superpowers.each do |superpower| %>
           <div class="col px-5 my-3">
-            <div class="card-trip">
+          <% @superpowers.each do |superpower| %>
+            <div class="card-trip my-2">
               <div class="card-trip-infos">
                 <div>
                   <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
                   <p><%= superpower.description %></p>
                 </div>
                 <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
+                <% if superpower.photo.attached? %>
+                  <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+                <% else %>
                 <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <% end %>
               </div>
             </div>
           <% end %>
