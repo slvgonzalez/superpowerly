@@ -1,0 +1,7 @@
+<%= simple_form_for [ @superpower ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price, as: :numeric %>
+  <%= f.input :content %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
