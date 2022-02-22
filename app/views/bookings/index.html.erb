@@ -1,11 +1,10 @@
 
 <div class="bookings-container">
   <h1> Your bookings </h1>
-  <ul>
     <% @bookings.each do |booking| %>
-    <li> <%= booking.superpower %> </li>
-    <li> <%= "Rented from #{booking.superpower.user.username}" %> </li>
-    <li> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %></li>
+      <h4> <%= booking.superpower.name %> </h4>
+      <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
+      <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
     <% end %>
-  </ul>
+  <%= link_to "Find another superpower to rent", superpowers_path, class:"btn btn-ghost" %>
 </div>
