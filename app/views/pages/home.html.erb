@@ -13,22 +13,22 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%=link_to "Home", root_path, class: "nav-link", id: "margin-right-nav-links"  %>
           </li>
+          <%# <li class="nav-item">
+            <%=link_to "Messages", _path, class: "nav-link" %>
+          </li> %>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Bookings</a>
+            <%=link_to "Bookings", bookings_path, class: "nav-link", id: "margin-right-nav-links" %>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-trendy-flat-style-isolated-white-background-187477840.jpg" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Profile</a>
               <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" href="#">Sign out</a>
+              <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class:"dropdown-item" %>
             </div>
           </li>
       </ul>
@@ -67,7 +67,7 @@
     <div class="container">
       <h1> Ever seen superheroes? Now you can be one of them! </h1>
       <p> Superpowerly gives you a chance to rent superpowers you always wanted to have </p>
-      <button class="btn btn-success">Sign up now!</button>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-success" %>
     </div>
   </div>
   <aside> <h3> Just a thought... would be cool, right?</h3> </aside>

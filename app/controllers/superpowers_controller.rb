@@ -8,7 +8,6 @@ class SuperpowersController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:id])
     @superpower = Superpower.new
   end
 
@@ -17,8 +16,11 @@ class SuperpowersController < ApplicationController
     # we need `user_id` to associate superpower with corresponding user?
     @user = User.find(params[:user_id])
     @user.superpower = @superpower
-    @superpower.save!
-    redirect_to superpowers_path(@user)
+    if @superpower.save!
+      redirect_to superpowers_path(@user)
+    else
+      render :new
+    end
   end
   private
 
