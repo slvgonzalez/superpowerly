@@ -1,6 +1,14 @@
 class SuperpowersController < ApplicationController
   def index
     @superpowers = Superpower.all
+    @search = params["search"]
+    if @search.present? && @search["name"] != ""
+      @name = @search["name"]
+      id = current_user.id
+      spowers1 = Superpower.where(user_id: id)
+      spowers2 = Superpower.where("name ILIKE ?", "%#{@name}%")
+      @superpowers = spowers2 - spowers1
+    end
   end
 
   def show
@@ -17,7 +25,7 @@ class SuperpowersController < ApplicationController
     @user = current_user
     @superpower.user = @user
     if @superpower.save!
-      redirect_to superpowers_path(@user)
+      redirect_to superpower_path(@superpower)
     else
       render :new
     end
