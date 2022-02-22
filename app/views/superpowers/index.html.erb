@@ -23,7 +23,7 @@
             <div class="card-trip">
               <div class="card-trip-infos">
                 <div>
-                  <h2><%= superpower.name  %></h2>
+                  <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
                   <p><%= superpower.description %></p>
                 </div>
                 <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
