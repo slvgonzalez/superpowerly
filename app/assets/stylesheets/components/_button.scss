@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-a{
+// MAIN BUTTON (animated)
+.main-button{
     position: relative;
     display: inline-block;
     padding: 25px 30px;
@@ -14,7 +15,7 @@ a{
     margin-right: 50px;
 
 }
-a:hover{
+.main-button:hover{
     background: #03e9f4;
     color: #050801;
     box-shadow: 0 0 5px #03e9f4,
@@ -23,17 +24,17 @@ a:hover{
                 0 0 200px #03e9f4;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
-a:nth-child(1){
+.main-button:nth-child(1){
     filter: hue-rotate(270deg);
 }
-a:nth-child(2){
+.main-button:nth-child(2){
     filter: hue-rotate(110deg);
 }
-a span{
+.main-button span{
     position: absolute;
     display: block;
 }
-a span:nth-child(1){
+.main-button span:nth-child(1){
     top: 0;
     left: 0;
     width: 100%;
@@ -49,7 +50,7 @@ a span:nth-child(1){
         left: 100%;
     }
 }
-a span:nth-child(2){
+.main-button span:nth-child(2){
     top: -100%;
     right: 0;
     width: 2px;
@@ -66,7 +67,7 @@ a span:nth-child(2){
         top: 100%;
     }
 }
-a span:nth-child(3){
+.main-button span:nth-child(3){
     bottom: 0;
     right: 0;
     width: 100%;
@@ -85,7 +86,7 @@ a span:nth-child(3){
 }
 
 
-a span:nth-child(4){
+.main-button span:nth-child(4){
     bottom: -100%;
     left: 0;
     width: 2px;
