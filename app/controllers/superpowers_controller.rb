@@ -1,6 +1,14 @@
 class SuperpowersController < ApplicationController
   def index
     @superpowers = Superpower.all
+    @search = params["search"]
+    if @search.present? && @search["name"] != ""
+      @name = @search["name"]
+      id = current_user.id
+      spowers1 = Superpower.where(user_id: id)
+      spowers2 = Superpower.where("name ILIKE ?", "%#{@name}%")
+      @superpowers = spowers2 - spowers1
+    end
   end
 
   def show
