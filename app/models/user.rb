@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :superpowers
   has_many :bookings
 
+  validates :username, presence: true
+  validates :username, uniqueness: true
 end
