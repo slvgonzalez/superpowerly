@@ -6,17 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+
 #---------USERS
 (1..5).each do |n|
   user = User.new(
-    username: "user#{n}",
-    email: "example#{n}@gmail#{n}.com",
+    username: "user#{n * rand(2..10_000)}",
+    email: "example#{n * rand(2..10_000)}@gmail#{n}.com",
     password: "12345678#{n}",
     first_name: "Name#{n}",
     last_name: "Last#{n}"
   )
   user.save!
   puts "user #{n} created"
-  Superpower.create!(name: "invisibility#{n}", price: (30+n), description: "become invisible", user_id: user.id)
+  Superpower.create!(name: "invisibility#{n}", price: (30 + n), description: "become invisible", user_id: user.id)
   puts "superpower #{n} created"
 end
