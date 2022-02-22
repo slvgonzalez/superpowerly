@@ -22,6 +22,7 @@ class SuperpowersController < ApplicationController
       render :new
     end
   end
+
   private
 
   def superpower_params
