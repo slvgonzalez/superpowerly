@@ -42,7 +42,7 @@ super_fast = Superpower.create!(
   description: "Gives you the abilities to do everything 10 times faster!⚡️ You can even try to finish your code on time before the presentation!",
   user_id: users.sample)
   file = URI.open("https://image.cnbcfm.com/api/v1/image/100110389-drive-fast-gettyp.jpg?v=1424731075")
-super_strength.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
+super_fast.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
 superpower = Superpower.create!(
     name: "Invisibility",
     price: 180,
