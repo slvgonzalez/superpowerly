@@ -14,10 +14,14 @@
 @import "pages/index";
 
 // grid
-@import "grid";
+@import "layout";
 
 body {
   background-color: black;
-  color: aliceblue;
+  color: $primary-contrast;
   font-family: 'Josefin Sans', sans-serif;
+}
+
+h2,h3,h4,h5 {
+  color: $primary-contrast
 }

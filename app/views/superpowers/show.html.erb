@@ -1,16 +1,16 @@
 <%# navbar ------- %>
-
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @superpower.name %></h2>
-      <p><%= @superpower.description %></p>
+<div class="container col-8">
+  <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @superpower.name %></h2>
+        <p><%= @superpower.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
-    <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <%= link_to "Book this superpower!", new_superpower_booking_path(@superpower), class: "main-button" %>
+    <%= link_to "Back", superpowers_path, class: "link" %>
   </div>
-  <%= link_to "Book this superpower!", new_superpower_booking_path(@superpower), class: "btn btn-success" %>
-  <%= link_to "Back", superpowers_path, class: "btn btn-ghost" %>
-
 </div>
