@@ -1,8 +1,8 @@
 <%# navbar ------- %>
 <%# do not delete these 3 lines --------%>
 
-<% btn_toggle = controller_name == "bookings" ? %w[main-button d-none] : %w[main-button] %>
-<% btn_toggle = current_user.id == @superpower.user_id ? %w[main-button d-none] : %w[main-button] %>
+<% btn_toggle = controller_name == "bookings"  ? %w[main-button d-none] : %w[main-button] %>
+<% btn_toggle = current_user.id == @superpower.user_id  ? %w[main-button d-none] : %w[main-button] %>
 <% form_toggle = controller_name == "bookings" ? "align-self-end mb-5" : "align-self-end mb-5 d-none" %>
 
   <%# do not delete data-controller--------%>
