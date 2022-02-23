@@ -8,7 +8,7 @@
 Superpower.destroy_all
 User.destroy_all
 superpowers = [
-  { name: "super strength", description: "gives the wielder super human strengths" },
+  { name: "super strength", description: "gives the wielder super human strength" },
   { name: "flight", description: "gives the wielder the ability to fly through the skys at supersonic speed" },
   { name: "super human senses", description: "allows the person to user their senses at super human level" },
   { name: "elasticity", description: "can stretch the human body to extreme lengths" },
@@ -35,13 +35,28 @@ users = []
 end
 
 #------------SUPERPOWERS
-superpowers.each do |superpower|
-  Superpower.create!(
-    name: superpower[:name],
+#superpowers.each do |superpower|
+superpower = Superpower.create!(
+    name: "invisibility",
     price: 30,
-    description: superpower[:description],
-    user_id: users.sample
-  )
-end
+    description: "allows the user to steal banks unnoticed",
+    user_id: users.sample)
+    file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645626744/vi5sje2kk3agl6ttbxg1.webp")
+superpower.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
+super_smell = Superpower.create!(
+    name: "super smell",
+    price: 30,
+    description: "can smell things from miles away",
+    user_id: users.sample)
+    file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645629667/mnhnj8gibsg6xrvb4baa.jpg")
+super_smell.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
+super_strength = Superpower.create!(
+    name: "super strength",
+    price: 30,
+    description: "gives the wielder super human strength",
+    user_id: users.sample)
+    file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645630077/hcb5xzjql6bjjxpjga1v.jpg")
+super_strength.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
+#end
 
 puts "superpower #{superpowers.length} created"
