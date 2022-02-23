@@ -1,17 +1,13 @@
 <%# navbar ------- %>
 <%# do not delete these 2 lines --------%>
+
 <% btn_toggle = controller_name == "bookings" ? %w[main-button d-none] : %w[main-button] %>
-<% form_toggle = controller_name == "bookings" ? "" : "d-none" %>
+<% btn_toggle = current_user.id == @superpower.user_id ? %w[main-button d-none] : %w[main-button] %>
+<% form_toggle = controller_name == "bookings" ? "align-self-end mb-5" : "align-self-end mb-5 d-none" %>
 
 <%# do not delete this condition --------%>
-<% if current_user.id == @superpower.user_id %>
-  <div class="bookings-container">
-    <h2> Error: You cannot double up your own superpower! :( </h2>
-    <%= link_to "Back to all superpowers", superpowers_path %>
-  </div>
-<% else %>
   <%# do not delete data-controller--------%>
-  <div class="d-flex justify-content-center mx-5 mt-5" data-controller="toggle-form">
+<div class="d-flex justify-content-center mx-5 mt-5" data-controller="toggle-form">
   <%#-----------------%>
     <div class="show-card">
       <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
@@ -42,6 +38,4 @@
         <%= f.submit "Add Booking", class:"btn btn-primary" %>
       <% end %>
       <%#-----------------%>
-  </div>
-  <% end %>
 </div>
