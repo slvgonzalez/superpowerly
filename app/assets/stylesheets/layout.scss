@@ -2,6 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  flex-grow: 1;
+}
+
+.main-container {
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
 }
 
 // Smallest device

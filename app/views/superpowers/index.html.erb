@@ -7,63 +7,77 @@
     <h1> Let's find a superpower for you today: </h1>
       <%= simple_form_for :search, url: superpowers_path, method: "GET", html: { class: 'form-inline' } do |f| %>
       <%= f.input :name, input_html: {value: ""} %>
-      <%= f.submit "Search", class: "btn btn-primary" %>
+      <%= f.submit "Search", class: "main-button" %>
       <% end %>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-">
+<!--   <div class="cards">
+    <% @superpowers.each do |superpower| %>
+      <figure class="image-card">
+        <h1><%= superpower.name %></h1>
+        <% if superpower.photo.attached? %>
+          <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+        <% end %>
+        <figcaption>
+          <h3>Read more</h3>
+          <p><%= superpower.description %></p>
+          <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
+        </figcaption>
+      </figure>
+    <% end %> -->
+<div class="wrapper">
       <h1>Superpowers</h1>
-      <div class="container mt-5 p-3">
       <%= link_to "Create a Superpower", new_superpower_path, class: "btn btn-ghost" %>
-        <div class="row row-cols-2 mx-n5 justify-content-center">
-          <div class="col px-5 my-3">
           <% if @superpowers.empty? %>
             <h2> No superpowers found :( </h2>
           <%else%>
+            <div class="main-container">
             <% @superpowers.each do |superpower| %>
               <% if current_user.id != superpower.user_id %>
-                <div class="card-trip my-2">
-                  <div class="card-trip-infos">
-                    <div>
-                      <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
-                      <p><%= superpower.description %></p>
-                    </div>
-                    <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
+                <div class="cards">
+                  <figure class="image-card">
+                      
+                    <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
                     <% if superpower.photo.attached? %>
                       <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
                     <% else %>
-                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
                     <% end %>
-                    </div>
-                  </div>
+                    <figcaption>
+                      <h3>Read more</h3>
+                      <p><%= superpower.description %></p>
+                      <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
+                    </figcaption>
+                  </figure>
+                 </div>
+                </div>
                 <% end %>
               <% end %>
               <h2> Some powers you are renting out like a sell-out you are: </h2>
+              <div class="main-container">
               <% @superpowers.each do |superpower| %>
               <% if current_user.id == superpower.user_id %>
-                <div class="card-trip my-2">
-                  <div class="card-trip-infos">
-                    <div>
+                <div class="cards">
+                  <figure class="image-card">
                       <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
-                      <p><%= superpower.description %></p>
-                    </div>
-                    <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
                     <% if superpower.photo.attached? %>
                       <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
                     <% else %>
-                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
                     <% end %>
-                    </div>
-                  </div>
+                    <figcaption>
+                      <h3>Read more</h3>
+                      <p><%= superpower.description %></p>
+                      <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
+                   </figcaption>
+                  </figure>
+                 </div>
+                </div>
                 <% end %>
               <% end %>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
