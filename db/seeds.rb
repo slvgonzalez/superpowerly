@@ -36,24 +36,31 @@ end
 
 #------------SUPERPOWERS
 #superpowers.each do |superpower|
+super_fast = Superpower.create!(
+  name: "Super speed",
+  price: 50,
+  description: "Gives you the abilities to do everything 10 times faster!⚡️ You can even try to finish your code on time before the presentation!",
+  user_id: users.sample)
+  file = URI.open("https://image.cnbcfm.com/api/v1/image/100110389-drive-fast-gettyp.jpg?v=1424731075")
+super_strength.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
 superpower = Superpower.create!(
-    name: "invisibility",
-    price: 30,
-    description: "allows the user to steal banks unnoticed",
+    name: "Invisibility",
+    price: 180,
+    description: "Allows the user to steal from banks unnoticed",
     user_id: users.sample)
     file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645626744/vi5sje2kk3agl6ttbxg1.webp")
 superpower.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
 super_smell = Superpower.create!(
-    name: "super smell",
-    price: 30,
-    description: "can smell things from miles away",
+    name: "Super smell",
+    price: 20,
+    description: "Can smell things from miles away",
     user_id: users.sample)
     file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645629667/mnhnj8gibsg6xrvb4baa.jpg")
 super_smell.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
 super_strength = Superpower.create!(
-    name: "super strength",
-    price: 30,
-    description: "gives the wielder super human strength",
+    name: "Super strength",
+    price: 90,
+    description: "Gives the wielder super human strength",
     user_id: users.sample)
     file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645630077/hcb5xzjql6bjjxpjga1v.jpg")
 super_strength.photo.attach(io: file, filename: 'test.png', content_type: 'image/png')
