@@ -1,3 +1,7 @@
+.container-fluid {
+  margin-right: 15px;
+  margin-left: 15px;
+}
 .navbar-Superpowerly {
   justify-content: space-between;
   align-items: center;
@@ -28,20 +32,6 @@
   color: black !important;
 }
 
-// h1 {
-//   color: black;
-//   font-weight: bold;
-//   padding: 0px;
-//   display: inline-block;
-//   width: 18%;
-//   min-width: 77px;
-// }
-
-body {
-  color: $primary-contrast;
-  margin: 0;
-  padding: 0;
-}
 
 #margin-right-nav-links {
   margin-right: 1em;
