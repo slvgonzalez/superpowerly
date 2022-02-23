@@ -28,53 +28,56 @@
         </figcaption>
       </figure>
     <% end %> -->
-<div class="main-container">
+<div class="text-center p-3 mt-3">
   <h1>Superpowers</h1>
-  <%= link_to "Create a Superpower", new_superpower_path, class: "btn btn-ghost" %>
+  <p> <%= link_to "Create a Superpower", new_superpower_path, class: "link" %> </p>
+</div>
+<div class="main-container">
   <% if @superpowers.empty? %>
     <h2> No superpowers found :( </h2>
   <%else%>
-    <% @superpowers.each do |superpower| %>
-      <% if current_user.id != superpower.user_id %>
-        <div class="cards">
+    <div class="cards">
+      <% @superpowers.each do |superpower| %>
+        <% if current_user.id != superpower.user_id %>
           <figure class="image-card">
-          <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
-          <% if superpower.photo.attached? %>
-            <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
-          <% end %>
-          <figcaption>
-            <h3>Read more</h3>
-                      <p><%= superpower.description %></p>
-                      <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
-                    </figcaption>
-                  </figure>
-                 </div>
-                </div>
-                <% end %>
-              <% end %>
-              <h2> Some powers you are renting out like a sell-out you are: </h2>
-              <div class="main-container">
-              <% @superpowers.each do |superpower| %>
-              <% if current_user.id == superpower.user_id %>
-                <div class="cards">
-                  <figure class="image-card">
-                      <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
-                    <% if superpower.photo.attached? %>
-                      <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
-                    <% else %>
-                    <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
-                    <% end %>
-                    <figcaption>
-                      <h3>Read more</h3>
-                      <p><%= superpower.description %></p>
-                      <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
-                   </figcaption>
-                  </figure>
-                 </div>
-                </div>
-                <% end %>
-              <% end %>
+            <h1><%= superpower.name %></h1>
+            <% if superpower.photo.attached? %>
+              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
             <% end %>
-          </div>
+            <figcaption>
+              <h3>Read more</h3>
+              <p><%= superpower.description %></p>
+              <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
+            </figcaption>
+          </figure>
+        <% end %>
+      <% end %>
+    </div>
+  <% if !@superpowers.empty? %>
+    <div class="text-center p-3 mt-3">
+      <h2> <%= @message %> </h2>
+    </div>
+  <% end %>
+    <div class="cards">
+      <% @superpowers.each do |superpower| %>
+        <% if current_user.id == superpower.user_id %>
+          <figure class="image-card">
+            <h1><%= superpower.name %></h1>
+            <% if superpower.photo.attached? %>
+              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+            <% end %>
+            <figcaption>
+              <h3>Read more</h3>
+              <p><%= superpower.description %></p>
+              <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
+            </figcaption>
+          </figure>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
