@@ -1,7 +1,7 @@
 <%# navbar ------- %>
 <%# do not delete these 2 lines --------%>
 <% btn_toggle = controller_name == "bookings" ? %w[main-button d-none] : %w[main-button] %>
-<% form_toggle = controller_name == "bookings" ? "" : "d-none" %>
+<% form_toggle = controller_name == "bookings" ? "align-self-end mb-5" : "align-self-end mb-5 d-none" %>
 
 <%# do not delete this condition --------%>
 <% if current_user.id == @superpower.user_id %>
