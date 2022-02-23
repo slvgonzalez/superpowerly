@@ -1,7 +1,12 @@
-<div class="bookings-container">
-  <%= simple_form_for [ @superpower, @booking ] do |f| %>
-    <%= f.input :start_date, as: :date %>
-    <%= f.input :end_date, as: :date %>
-    <%= f.submit "Confirm booking!", class: "main-button" %>
-  <% end %>
-</div>
+<%# <div class="bookings-container">
+  <% if current_user.id == @superpower.user_id %>
+    <%# <h2> Error: You cannot double up your own superpower! :( </h2>
+    <%= link_to "Back to all superpowers" %>
+  <%# <% else %>
+    <%# <%= simple_form_for [ @superpower, @booking ] do |f| %>
+      <%# <%= f.input :start_date, as: :date %>
+      <%# <%= f.input :end_date, as: :date %>
+      <%# <%= f.submit "Confirm booking!", class: "btn btn-primary" %>
+    <%# <% end %>
+  <%# <% end %>
+<%# </div> %>
