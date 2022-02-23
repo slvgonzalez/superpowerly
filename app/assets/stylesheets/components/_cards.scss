@@ -194,7 +194,7 @@ figure {
 
 // SHOW PAGE HUGE CARD
 .show-card {
-  width: 65%;
+  width: 60%;
   margin-top: 20px;
   margin-left: 20px;
   margin-top: 15px;
@@ -235,7 +235,45 @@ figure {
 .show-card-infos .show-card-user {
   position: absolute;
   right: 16px;
-  top: -20px;
-  width: 40px;
-  margin-right: 20px;
+  top: -40px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+// CARD FOR BOOKINGS
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: $background-color;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  color: $primary-contrast;
+  margin-top: 30px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: $secondary-contrast;
+}
+
+.card-product p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
