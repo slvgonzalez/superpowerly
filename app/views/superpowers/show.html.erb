@@ -1,6 +1,6 @@
 <%# navbar ------- %>
 <%# do not delete these 2 lines --------%>
-<% btn_toggle = controller_name == "bookings" ? %w[btn btn-flat d-none] : %w[btn btn-flat] %>
+<% btn_toggle = controller_name == "bookings" ? %w[main-button d-none] : %w[main-button] %>
 <% form_toggle = controller_name == "bookings" ? "" : "d-none" %>
 
 <%# do not delete this condition --------%>
@@ -11,22 +11,29 @@
   </div>
 <% else %>
   <%# do not delete data-controller--------%>
-  <div class="d-flex justify-content-end mx-5 mt-5 col-9" data-controller="toggle-form">
+  <div class="d-flex justify-content-center mx-5 mt-5" data-controller="toggle-form">
   <%#-----------------%>
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
+    <div class="show-card">
+      <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
+      <div class="show-card-infos">
+        <div class="show-card-header">
           <h2><%= @superpower.name %></h2>
+          <div class="show-card-bookig">
+            <h3> £ <%= @superpower.price %></h3>
+            <button class="<%=btn_toggle.join(" ")%>" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</button>
+          </div>
           <p><%= @superpower.description %></p>
+          <h3><%= rand(1..20) %> Reviews <%= "⭐️" * rand(1..5) %></h3>
+          <p>I love this spower! 🏃🏼‍♀️ It quite expensive but its worth it because I don't have to pay for the trains or the buses + I'm always on time to work 🦸🏼‍♀️💼.</p>
         </div>
-        <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <div class="user-group">
+          <h2 class="show-card-rating">  <%= rand(23..100) %></h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="show-card-user avatar-bordered" />
+        </div>
       </div>
       <%# do not delete this button --------%>
-      <button class="<%=btn_toggle.join(" ")%>" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</button>
       <%#-----------------%>
-      <%= link_to "Back", superpowers_path, class: "btn btn-ghost" %>
+      <%= link_to "Back", superpowers_path, class: "link" %>
     </div>
       <%# do not delete this form --------%>
       <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>

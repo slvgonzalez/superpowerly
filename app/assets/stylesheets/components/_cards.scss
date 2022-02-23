@@ -191,3 +191,51 @@ figure {
 		}
 	}
 }
+
+// SHOW PAGE HUGE CARD
+.show-card {
+  width: 65%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  background: $background-color;
+  box-shadow: 0 0 15px rgba(58, 58, 58, 0.2);
+}
+.show-card img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.show-card h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: $secondary-contrast;
+}
+
+.show-card p {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+  color: $primary-contrast;
+}
+
+
+.show-card .show-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.show-card-infos .show-card-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+  margin-right: 20px;
+}
