@@ -1,3 +1,7 @@
+.container-fluid {
+  margin-right: 15px;
+  margin-left: 15px;
+}
 .navbar-Superpowerly {
   justify-content: space-between;
   align-items: center;
@@ -25,21 +29,6 @@
 
 .dropdown-menu a{
   color: black !important;
-}
-
-// h1 {
-//   color: black;
-//   font-weight: bold;
-//   padding: 0px;
-//   display: inline-block;
-//   width: 18%;
-//   min-width: 77px;
-// }
-
-body {
-  color: black;
-  margin: 0;
-  padding: 0;
 }
 
 #margin-right-nav-links {
