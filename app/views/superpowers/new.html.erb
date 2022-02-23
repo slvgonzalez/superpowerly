@@ -4,5 +4,15 @@
   <%= f.input :description %>
   <%= f.input :price, as: :numeric %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit "Create superpower", class: "btn btn-primary" %>
+  <%= f.submit "Create superpower", class: "link" %>
 <% end %>
+<div class="container col-6 mt-10">
+  <h3>Create a new superpower</h3>
+  <%= simple_form_for [ @superpower ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price, as: :numeric %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Create superpower", class: "link" %>
+  <% end %>
+</div>
