@@ -3,7 +3,7 @@
   <h1> Your bookings </h1>
     <% @bookings.each do |booking| %>
     <div class="card-product">
-      <img src=""/>
+      <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
       <div class="card-product-infos">
         <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
         <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
