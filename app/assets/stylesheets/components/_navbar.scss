@@ -19,8 +19,9 @@
   flex-grow: 0;
 }
 
-.navbar-Superpowerly .navbar-brand img {
-  width: 60px;
+.navbar-Superpowerly .navbar-brand {
+  width: 200px;
+  background-image: "/Users/silvia/code/slvgonzalez/superpowerly/app/assets/images/Recurso 2.png";
 }
 
 .navbar-nav a{
@@ -30,6 +31,7 @@
 .dropdown-menu a{
   color: black !important;
 }
+
 
 #margin-right-nav-links {
   margin-right: 1em;
