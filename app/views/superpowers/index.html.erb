@@ -39,12 +39,12 @@
               <% if current_user.id != superpower.user_id %>
                 <div class="cards">
                   <figure class="image-card">
-                      
+
                     <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
                     <% if superpower.photo.attached? %>
                       <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
                     <% else %>
-                    <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+                      <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
                     <% end %>
                     <figcaption>
                       <h3>Read more</h3>
@@ -80,4 +80,3 @@
               <% end %>
             <% end %>
           </div>
-

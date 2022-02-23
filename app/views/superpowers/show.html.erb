@@ -13,15 +13,15 @@
   <%# do not delete data-controller--------%>
   <div class="d-flex justify-content-end mx-5 mt-5 col-9" data-controller="toggle-form">
   <%#-----------------%>
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
+    <div class="show-card">
+      <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
+      <div class="show-card-infos">
         <div>
           <h2><%= @superpower.name %></h2>
           <p><%= @superpower.description %></p>
         </div>
-        <h2 class="card-trip-pricing"><%= @superpower.price %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <h2 class="show-card-pricing"><%= @superpower.price %></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="show-card-user avatar-bordered" />
       </div>
       <%# do not delete this button --------%>
       <button class="<%=btn_toggle.join(" ")%>" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</button>
