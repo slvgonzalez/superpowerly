@@ -194,7 +194,7 @@ figure {
 
 // SHOW PAGE HUGE CARD
 .show-card {
-  width: 500px;
+  width: 65%;
   margin-top: 20px;
   margin-left: 20px;
   margin-top: 15px;
@@ -211,12 +211,13 @@ figure {
 .show-card h2 {
   font-size: 36px;
   font-weight: bold;
+  margin-top: 15px;
   margin-bottom: 15px;
   color: $secondary-contrast;
 }
 
 .show-card p {
-  font-size: 12px;
+  font-size: 20px;
   opacity: .7;
   margin: 0;
   color: $primary-contrast;
@@ -236,4 +237,5 @@ figure {
   right: 16px;
   top: -20px;
   width: 40px;
+  margin-right: 20px;
 }
