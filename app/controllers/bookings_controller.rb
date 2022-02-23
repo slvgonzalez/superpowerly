@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
       @user = current_user
       @bookings = Booking.where(user_id: @user)
     else
-      redirect_to root_path
+      redirect_to superpowers_path
     end
   end
 
@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @superpower = Superpower.find(params[:superpower_id])
     @booking = Booking.new(strong_params)
     @booking.superpower = @superpower
+    @booking.user = @user
     if @booking.save
       @user = current_user
       redirect_to bookings_path

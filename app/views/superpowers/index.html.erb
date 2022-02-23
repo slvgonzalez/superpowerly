@@ -1,0 +1,69 @@
+<%# navbar ------- %>
+
+
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.wired.com/photos/5c54ee6a4feec32ca0f590d8/125:94/w_1761,h_1324,c_limit/superman-922909434.jpg);">
+  <div class="container">
+  <%# search input---need to add to back-end ----- %>
+    <h1> Let's find a superpower for you today: </h1>
+      <%= simple_form_for :search, url: superpowers_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :name, input_html: {value: ""} %>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-">
+      <h1>Superpowers</h1>
+      <div class="container mt-5 p-3">
+      <%= link_to "Create a Superpower", new_superpower_path, class: "btn btn-ghost" %>
+        <div class="row row-cols-2 mx-n5 justify-content-center">
+          <div class="col px-5 my-3">
+          <% if @superpowers.empty? %>
+            <h2> No superpowers found :( </h2>
+          <%else%>
+            <% @superpowers.each do |superpower| %>
+              <% if current_user.id != superpower.user_id %>
+                <div class="card-trip my-2">
+                  <div class="card-trip-infos">
+                    <div>
+                      <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
+                      <p><%= superpower.description %></p>
+                    </div>
+                    <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
+                    <% if superpower.photo.attached? %>
+                      <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+                    <% else %>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+              <h2> Some powers you are renting out like a sell-out you are: </h2>
+              <% @superpowers.each do |superpower| %>
+              <% if current_user.id == superpower.user_id %>
+                <div class="card-trip my-2">
+                  <div class="card-trip-infos">
+                    <div>
+                      <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
+                      <p><%= superpower.description %></p>
+                    </div>
+                    <h2 class="card-trip-pricing"> <%= superpower.price %></h2>
+                    <% if superpower.photo.attached? %>
+                      <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+                    <% else %>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
