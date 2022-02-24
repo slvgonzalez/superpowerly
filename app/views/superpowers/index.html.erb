@@ -24,14 +24,13 @@
       <% @superpowers.each do |superpower| %>
         <% if current_user.id != superpower.user_id %>
           <figure class="image-card">
-            <h1><%= superpower.name %></h1>
             <% if superpower.photo.attached? %>
               <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
               <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
             <% end %>
             <figcaption>
-              <h3>Read more</h3>
+              <h3> <%=superpower.name.capitalize  %> </h3>
               <p><%= superpower.description %></p>
               <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
             </figcaption>
