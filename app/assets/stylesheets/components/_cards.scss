@@ -195,16 +195,18 @@ figure {
 // SHOW PAGE HUGE CARD
 .show-card {
   width: 60%;
-  margin-top: 20px;
   margin-left: 20px;
-  margin-top: 15px;
+  margin-top: 3rem;
   margin-bottom: 15px;
   overflow: hidden;
   background: $background-color;
   box-shadow: 0 0 15px rgba(58, 58, 58, 0.2);
+  border-style: solid;
+  border-color: $secondary-contrast;
+  padding: 1rem;
 }
 .show-card img{
-  width: 100%;
+  width: 70%;
   object-fit: cover;
 }
 
