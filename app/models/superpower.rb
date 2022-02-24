@@ -7,7 +7,7 @@ class Superpower < ApplicationRecord
   validates :price, presence: true
   validates :name, presence: true
   pg_search_scope :search_for_spowers_by_name_descr_cat_user,
-                  against: %i[name description category],
+                  against: %i[name description],
                   associated_against: {
                     user: %i[username]
                   },
@@ -15,3 +15,5 @@ class Superpower < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 end
+
+# add category

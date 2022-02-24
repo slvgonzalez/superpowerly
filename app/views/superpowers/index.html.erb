@@ -57,10 +57,11 @@
       <% end %>
     </div>
   <% if !@superpowers.empty? %>
-    <div class="text-center p-3 mt-3">
+  <div class="msg-container w-100 text-center">
+    <div class="p-3 mt-3">
       <h2> <%= @message %> </h2>
     </div>
-  <% end %>
+  </div>
     <div class="cards">
       <% @superpowers.each do |superpower| %>
         <% if current_user.id == superpower.user_id %>
@@ -80,5 +81,6 @@
         <% end %>
       <% end %>
     </div>
+  <% end %>
   <% end %>
 </div>
