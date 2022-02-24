@@ -1,6 +1,7 @@
 .container-fluid {
-  margin-right: 15px;
+  margin-right: 25px;
   margin-left: 15px;
+  margin-top: 1rem;
 }
 .navbar-Superpowerly {
   justify-content: space-between;
@@ -15,14 +16,14 @@
   height: 70px;
 }
 
+.navbar-brand{
+  width: 200px;
+}
+
 .navbar-Superpowerly .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-Superpowerly .navbar-brand {
-  width: 200px;
-  background-image: "/Users/silvia/code/slvgonzalez/superpowerly/app/assets/images/Recurso 2.png";
-}
 
 .navbar-nav a{
   color: white !important;
@@ -35,4 +36,13 @@
 
 #margin-right-nav-links {
   margin-right: 1em;
+}
+
+.dropdown-toggle:hover{
+  background: $bright-color;
+  color: #050801;
+  box-shadow: 0 0 5px $bright-color,
+              0 0 10px $bright-color,
+              0 0 20px $bright-color,
+              0 0 30px $bright-color;
 }
