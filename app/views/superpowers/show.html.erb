@@ -9,7 +9,11 @@
 <div class="d-flex justify-content-center mx-5 mt-5" data-controller="toggle-form">
   <%#-----------------%>
     <div class="show-card">
-      <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
+      <% if @superpower.photo.attached? %>
+        <%= cl_image_tag @superpower.photo.key, height:500 %>
+      <% else %>
+        <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
+      <% end %>
       <div class="show-card-infos">
         <div class="show-card-header">
           <h2><%= @superpower.name %></h2>
@@ -22,9 +26,9 @@
           <p>" I love this spower! 🏃🏼‍♀️ It quite expensive but its worth it because I don't have to pay for the trains or the buses + I'm always on time to work 🦸🏼‍♀️💼".</p>
           <p>- Raph. Used this superpower 1 ago.</p>
         </div>
-        <div class="user-group">
+        <%# <div class="user-group">
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="show-card-user avatar-bordered" />
-        </div>
+        </div> %>
       </div>
       <%# do not delete this button --------%>
       <%#-----------------%>
