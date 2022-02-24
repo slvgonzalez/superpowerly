@@ -15,14 +15,13 @@
   height: 70px;
 }
 
+.navbar-brand{
+  width: 200px;
+}
 .navbar-Superpowerly .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-Superpowerly .navbar-brand {
-  width: 200px;
-  background-image: "/Users/silvia/code/slvgonzalez/superpowerly/app/assets/images/Recurso 2.png";
-}
 
 .navbar-nav a{
   color: white !important;
@@ -37,7 +36,7 @@
   margin-right: 1em;
 }
 
-// .dropdown-toggle:hover {
+.dropdown-toggle:hover {
   color: $bright-color;
   filter: blur(4px);
 }
