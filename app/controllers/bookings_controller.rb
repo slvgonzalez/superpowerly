@@ -24,7 +24,6 @@ class BookingsController < ApplicationController
       @user = current_user
       redirect_to bookings_path
     else
-      @err = "error"
       render 'superpowers/show'
     end
   end
