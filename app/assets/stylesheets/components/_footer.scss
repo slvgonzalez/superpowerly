@@ -1,24 +1,28 @@
 .footer {
   background: $background-color;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: $primary-contrast;
+  color: rgb(192, 192, 192);
   justify-content: center;
+  display: block;
+  align-items: center;
+  font-size: 16px;
 }
 .footer-links {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 .footer-links a {
-  color: $primary-contrast;
+  color: rgb(192, 192, 192);
   opacity: 0.9;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
   color: $secondary-contrast;
+}
+.center-footer {
+  display: flex;
+  justify-content: center;
 }
