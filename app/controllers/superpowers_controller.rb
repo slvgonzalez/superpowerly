@@ -2,11 +2,12 @@ class SuperpowersController < ApplicationController
   def index
     @search = params["search"]
     if @search.present? && @search["name"] != ""
-      @name = @search["name"]
+      @result = @search["name"]
+      Superpowers.search_for_spowers_by_name_descr_cat_user(@result)
       id = current_user.id
-      spowers1 = Superpower.where(user_id: id)
-      spowers2 = Superpower.where("name ILIKE ?", "%#{@name}%")
-      @superpowers = spowers2 - spowers1
+      # spowers1 = Superpower.where(user_id: id)
+      # spowers2 = Superpower.where("name ILIKE ?", "%#{@name}%")
+      # @superpowers = spowers2 - spowers1
     else
       @superpowers = Superpower.all
       @message = "Some powers you are renting out like a sell-out you are:"
