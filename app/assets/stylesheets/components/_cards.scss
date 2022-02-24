@@ -240,7 +240,7 @@ figure {
   margin-right: 5px;
 }
 
-// CARD FOR BOOKINGS
+// CARDS FOR BOOKINGS
 
 .card-product {
   overflow: hidden;
@@ -251,6 +251,8 @@ figure {
   align-items: center;
   color: $primary-contrast;
   margin-top: 30px;
+  border-style: solid;
+  border-color: $secondary-contrast;
 }
 
 .card-product img {
@@ -272,6 +274,7 @@ figure {
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  color: $primary-contrast;
 }
 
 .card-product .card-product-infos {
