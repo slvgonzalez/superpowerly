@@ -26,6 +26,10 @@
   flex-wrap: wrap;
   margin: 25px;
 }
+
+.main-container h2 {
+  margin-right: 40px;
+}
 .blog-card {
   background-color: $background-color;
   border-color: $secondary-contrast;
