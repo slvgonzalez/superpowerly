@@ -127,7 +127,6 @@ figure {
 	justify-content: center;
 	width: 375px;
 	height: 375px;
-	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	overflow: hidden;
@@ -139,6 +138,9 @@ figure {
 		figcaption {
 			bottom: 0;
 		}
+    border-style: solid;
+    border-color: $primary-contrast;
+    padding: 10px;
 	}
 	h1 {
 		position: absolute;
