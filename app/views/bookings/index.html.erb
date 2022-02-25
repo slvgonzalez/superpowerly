@@ -1,6 +1,11 @@
 
 <div class="bookings-container">
-  <h1> Your bookings </h1>
+  <h1> Your bookings: </h1>
+    <% if @bookings.empty? %>
+      <div class="mx-3 my-5 p-3">
+        <h3> - You have no bookings at this time </h3>
+      </div>
+    <% else %>
     <% @bookings.each do |booking| %>
     <div class="card-product">
       <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
@@ -10,6 +15,7 @@
         <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
       </div>
     </div>
+    <% end %>
     <% end %>
   <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
 </div>
