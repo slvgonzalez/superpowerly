@@ -5,11 +5,11 @@
   <div class="container">
   <%# search input-------- %>
     <h1> Let's find a superpower for you today: </h1>
-    <div>
+    <div class="search">
       <%= simple_form_for :search, url: superpowers_path, method: "GET", html: { class: 'form-inline mt-3' } do |f| %>
       <%= f.input :name, placeholder: 'Search by name, description, category or username of the seller', label:false, input_html: {value: ""} %>
-      <div class="center-button">
-      <%= f.submit "Search", class: "main-button" %>
+      <div class="center-button d-flex justify-content-center">
+        <%= f.submit "Search", class: "main-button", id:"search" %>
       </div>
       <% end %>
     </div>
