@@ -194,14 +194,29 @@ figure {
 
 // users uploaded superpowers card
 
+
 .yours{
   border-style: solid;
   border-color: $bright-color;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 2rem;
+  h3 {
+    font-size: 12px;
+  }
+  figcaption {
+    justify-content: center;
+    display: inline-grid;
+    padding: 10px;
+    background-color: $bright-color;
+    opacity: 0.8;
+  }
+
 }
 
 .yours:hover{
   border-style: solid;
-  border-color: $primary-contrast;
+  border-color: $background-color;
 }
 
 // SHOW PAGE HUGE CARD
