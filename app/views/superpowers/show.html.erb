@@ -10,7 +10,7 @@
 <% form_toggle = controller_name == "bookings" ? "align-self-end mb-5" : "align-self-end mb-5 d-none" %>
 
   <%# do not delete data-controller--------%>
-<div class="d-flex justify-content-center mx-5 mt-5" data-controller="toggle-form">
+<div class="d-flex justify-content-center mx-5 mt-3" data-controller="toggle-form">
   <%#-----------------%>
     <div class="show-card">
       <% if @superpower.photo.attached? %>
@@ -20,7 +20,6 @@
         <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
       <% end %>
       <div class="show-card-infos">
-        <a class="<%=btn_toggle.join(" ")%> center" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</a>
         <div class="show-card-text">
           <h2><%= @superpower.name %></h2>
           <div class="show-card-booking">
@@ -32,8 +31,8 @@
             <p>" I love this spower! 🏃🏼‍♀️ It quite expensive but its worth it because I don't have to pay for the trains or the buses + I'm always on time to work 🦸🏼‍♀️💼".</p>
             <p>- Raph. Used this superpower 1 ago.</p>
           </div>
-          <%= link_to "Back", superpowers_path, class: "link" %>
         </div>
+        <a class="<%=btn_toggle.join(" ")%> center" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</a>
         <div class="booking-form-container">
           <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
@@ -41,6 +40,7 @@
             <%= f.submit "Add Booking", class:"btn btn-primary" %>
           <% end %>
         </div>
+        <%= link_to "Back", superpowers_path, class: "link" %>
       </div>
       <%# do not delete this button --------%>
       <%#-----------------%>
