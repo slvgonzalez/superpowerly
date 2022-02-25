@@ -26,6 +26,10 @@
   flex-wrap: wrap;
   margin: 25px;
 }
+
+.main-container h2 {
+  margin-right: 40px;
+}
 .blog-card {
   background-color: $background-color;
   border-color: $secondary-contrast;
@@ -137,7 +141,7 @@ figure {
 			bottom: 0;
 		}
     border-style: solid;
-    border-color: $primary-contrast;
+    border-color: $secondary-contrast;
     padding: 10px;
 	}
 	h1 {
@@ -146,7 +150,7 @@ figure {
 		left: 20px;
 		margin: 0;
 		padding: 0;
-		color: white;
+		color: $secondary-contrast;
 		font-size: 60px;
 		font-weight: 100;
 		line-height: 1;
@@ -165,9 +169,12 @@ figure {
 		padding: 30px;
 		background-color: rgba(black,0.85);
 		box-shadow: 0 0 20px rgba(black,0.4);
-		color: white;
+		color: $secondary-contrast;
 		line-height: 1;
 		transition: 0.25s;
+    h4 {
+      color: $secondary-contrast;
+    }
 		h3 {
 			margin: 0 0 20px;
 			padding: 0;
@@ -176,6 +183,7 @@ figure {
 		}
 		p {
 			font-size: 20px;
+      color: $secondary-contrast;
 		}
 		card-link {
 			position: relative;
@@ -186,7 +194,7 @@ figure {
 			padding: 10px 30px;
 			background-color: $background-color;
 			border: none;
-			color: white;
+			color: $secondary-contrast;
 			font-size: 14px;
 		}
 	}
@@ -194,14 +202,29 @@ figure {
 
 // users uploaded superpowers card
 
+
 .yours{
   border-style: solid;
   border-color: $bright-color;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 2rem;
+  h3 {
+    font-size: 12px;
+  }
+  figcaption {
+    justify-content: center;
+    display: inline-grid;
+    padding: 10px;
+    background-color: $bright-color;
+    opacity: 0.8;
+  }
+
 }
 
 .yours:hover{
   border-style: solid;
-  border-color: $primary-contrast;
+  border-color: $background-color;
 }
 
 // SHOW PAGE HUGE CARD
@@ -263,6 +286,22 @@ figure {
 .card-product {
   overflow: hidden;
   height: 160px;
+  width: 60%;
+  background: $background-color;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  color: $primary-contrast;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-color: $secondary-contrast;
+}
+
+.card-product:hover {
+  overflow: hidden;
+  height: 160px;
+  width: 60%;
   background: $background-color;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -270,7 +309,8 @@ figure {
   color: $primary-contrast;
   margin-top: 30px;
   border-style: solid;
-  border-color: $secondary-contrast;
+  border-width: 2px;
+  border-color: $primary-contrast;
 }
 
 .card-product img {

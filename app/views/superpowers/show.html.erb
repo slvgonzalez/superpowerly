@@ -27,7 +27,7 @@
           </div>
           <p><%= @superpower.description %></p>
           <div class="reviews">
-          <h3><%= rand(1..20) %> Reviews <%= "⭐️" * rand(1..5) %></h3>
+          <h3><%= "⭐️" * @superpower.rating %> <%= rand(1..20) %> Reviews </h3>
             <p>" I love this spower! 🏃🏼‍♀️ It quite expensive but its worth it because I don't have to pay for the trains or the buses + I'm always on time to work 🦸🏼‍♀️💼".</p>
             <p>- Raph. Used this superpower 1 ago.</p>
           </div>

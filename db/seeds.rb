@@ -16,20 +16,20 @@ superpowers = [
   { name: "invisibility", description: "allows the user to steal banks unnoticed" },
   { name: "stress less", description: "helps the wielder to stress less in hard situations" }
 ]
-
+username = ["shaquille_oatmeal", "hanging_with_my_gnomies", "hoosier_daddy", "fast_and_the_curious", "averagestudent", "BadKarma", "google_was_my_idea"]
 #---------USERS
 users = []
-(1..superpowers.length).each do |n|
-  user = User.new(
-    username: "user#{n * rand(2..10_000)}",
-    email: "example#{n * rand(2..10_000)}@gmail#{n}.com",
-    password: "12345678#{n}",
-    first_name: "Name#{n}",
-    last_name: "Last#{n}"
+username.each do |user|
+  new_user = User.new(
+    username: user,
+    email: "#{user}@gmail.com",
+    password: "123456",
+    first_name: "Name",
+    last_name: "Last"
   )
-  user.save!
-  users << user.id
-  puts "user #{n} created"
+  new_user.save!
+  users << new_user.id
+  puts "user #{user} created"
 
 #Superpower.create!(name: "invisibility#{n}", price: (30 + n), description: "become invisible", user_id: user.id)
 end
