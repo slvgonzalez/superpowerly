@@ -6,6 +6,7 @@ class Superpower < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :name, presence: true
+  validates :rating, inclusion: { in: (1..5) }
   CATEGORIES = %w[enhancements almighty\ powers mental\ powers transportation]
   validates :category, inclusion: { in: CATEGORIES }
   pg_search_scope :search_for_spowers_by_name_descr_cat_user,
