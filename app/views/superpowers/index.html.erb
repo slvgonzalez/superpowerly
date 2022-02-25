@@ -22,18 +22,22 @@
     <div class="cards">
       <% @superpowers.each do |superpower| %>
         <% if current_user.id != superpower.user_id %>
-          <figure class="image-card">
-            <% if superpower.photo.attached? %>
-              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
-            <% end %>
-            <figcaption>
-              <h3> <%=superpower.name.capitalize  %> </h3>
-              <p>from £<%= superpower.price %></p>
-              <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
-            </figcaption>
-          </figure>
+          <%= link_to superpower_path(superpower) do %>
+            <figure class="image-card">
+              <% if superpower.photo.attached? %>
+                <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+              <% end %>
+              <figcaption>
+                <h3> <%=superpower.name.capitalize  %> </h3>
+                <div class="info d-flex justify-content-between">
+                  <h4> ★ <%= superpower.rating %></h4>
+                  <p>from £<%= superpower.price %></p>
+                </div>
+              </figcaption>
+            </figure>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -46,18 +50,19 @@
     <div class="cards">
       <% @superpowers.each do |superpower| %>
         <% if current_user.id == superpower.user_id %>
-          <figure class="image-card yours">
-            <% if superpower.photo.attached? %>
-              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
-            <% end %>
-            <figcaption>
-              <h3> <%=superpower.name.capitalize  %> </h3>
-              <span class="card-tag tag-purple"> <%= superpower.category %> </span>
-              <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
-            </figcaption>
-          </figure>
+          <%= link_to superpower_path(superpower) do %>
+            <figure class="image-card yours">
+              <% if superpower.photo.attached? %>
+                <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+              <% end %>
+              <figcaption>
+                <h3> <%=superpower.name.capitalize  %> </h3>
+                <span class="card-tag tag-purple"> <%= superpower.category %> </span>
+              </figcaption>
+            </figure>
+          <% end %>
         <% end %>
       <% end %>
     </div>

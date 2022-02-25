@@ -89,10 +89,8 @@
 }
 .tag-purple {
   background-color: $primary-contrast;
-  color: $background-color;
-}
-.tag-pink {
-  background-color: #cd5b9f;
+  color: $bright-color;
+  font-weight: 200;
 }
 
 // REGULAR CARDS IN INDEX
@@ -188,7 +186,6 @@ figure {
 			padding: 10px 30px;
 			background-color: $background-color;
 			border: none;
-			border-radius: 5px;
 			color: white;
 			font-size: 14px;
 		}
