@@ -36,7 +36,7 @@
       <h1> There's a superhero inside all of us </h1>
       <p> Superpowerly gives you a chance to rent superpowers you always wanted to have </p>
       <% if user_signed_in?%>
-        <%= link_to "Rent now!", superpowers_path, class: "main-button" %>
+        <%= link_to "Rent now!", superpowers_path, class: "main-button", id:"search" %>
       <% else %>
         <%= link_to "Sign up!", new_user_registration_path, class: "main-button" %>
       <% end %>
