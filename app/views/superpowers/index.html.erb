@@ -24,7 +24,7 @@
         <% if current_user.id != superpower.user_id %>
           <figure class="image-card">
             <% if superpower.photo.attached? %>
-              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill,  %>
             <% else %>
               <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
             <% end %>
