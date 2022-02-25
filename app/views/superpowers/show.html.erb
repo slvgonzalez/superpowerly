@@ -37,7 +37,7 @@
           <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.submit "Add Booking", class:"btn btn-primary" %>
+            <%= f.submit "Add Booking", class:"btn btn-primary", data: { confirm: "Booking successful!"} %>
           <% end %>
         </div>
         <%= link_to "Back", superpowers_path, class: "link" %>

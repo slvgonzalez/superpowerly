@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :superpowers, only: %i[index new create show] do
     resources :bookings, only: %i[create]
   end
-  resources :bookings, only: :index
+  resources :bookings, only: %i[index destroy]
 end

@@ -8,6 +8,8 @@
         <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
         <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
         <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
+        <p> <%= "Cost: £#{(booking.end_date-booking.start_date).to_i * (booking.superpower.price)}" %>
+        <p><%= link_to "Cancel this booking", booking_path(booking), method:"delete", class:"link", data:{confirm: "Are you sure?"} %></p>
       </div>
     </div>
     <% end %>
