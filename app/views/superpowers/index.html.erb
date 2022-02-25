@@ -1,7 +1,7 @@
 <%# navbar ------- %>
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.wired.com/photos/5c54ee6a4feec32ca0f590d8/125:94/w_1761,h_1324,c_limit/superman-922909434.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.freepik.es/vector-gratis/fondo-luces-neon_13295394.htm#&position=34&from_view=detail#&position=34&from_view=detail);">
   <div class="container">
   <%# search input-------- %>
     <h1> Let's find a superpower for you today: </h1>
@@ -13,7 +13,6 @@
 </div>
 
 <div class="text-center p-3 mt-3">
-  <h1>Superpowers</h1>
   <p> <%= link_to "Create a Superpower", new_superpower_path, class: "link" %> </p>
 </div>
 <div class="main-container">
@@ -24,15 +23,14 @@
       <% @superpowers.each do |superpower| %>
         <% if current_user.id != superpower.user_id %>
           <figure class="image-card">
-            <h1><%= superpower.name %></h1>
             <% if superpower.photo.attached? %>
               <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
               <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
             <% end %>
             <figcaption>
-              <h3>Read more</h3>
-              <p><%= superpower.description %></p>
+              <h3> <%=superpower.name.capitalize  %> </h3>
+              <p>from £<%= superpower.price %></p>
               <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
             </figcaption>
           </figure>
@@ -48,16 +46,15 @@
     <div class="cards">
       <% @superpowers.each do |superpower| %>
         <% if current_user.id == superpower.user_id %>
-          <figure class="image-card">
-            <h1><%= superpower.name %></h1>
+          <figure class="image-card yours">
             <% if superpower.photo.attached? %>
               <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
               <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
             <% end %>
             <figcaption>
-              <h3>Read more</h3>
-              <p><%= superpower.description %></p>
+              <h3> <%=superpower.name.capitalize  %> </h3>
+              <span class="card-tag tag-purple"> <%= superpower.category %> </span>
               <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
             </figcaption>
           </figure>

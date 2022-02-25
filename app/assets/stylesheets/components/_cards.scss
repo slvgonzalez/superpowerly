@@ -78,18 +78,18 @@
   background: #cccccc;
   border-radius: 50px;
   font-size: 12px;
-  margin: 2px;
+  margin-bottom: 15px;
   color: #fff;
-  padding: 5px 10px;
+  padding: 8px 10px;
   text-transform: uppercase;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 .tag-teal {
-  background-color: #47bcd4;
+  background-color: $light-color;
 }
 .tag-purple {
-  background-color: #5e76bf;
+  background-color: $primary-contrast;
+  color: $background-color;
 }
 .tag-pink {
   background-color: #cd5b9f;
@@ -127,7 +127,6 @@ figure {
 	justify-content: center;
 	width: 375px;
 	height: 375px;
-	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	overflow: hidden;
@@ -139,6 +138,9 @@ figure {
 		figcaption {
 			bottom: 0;
 		}
+    border-style: solid;
+    border-color: $primary-contrast;
+    padding: 10px;
 	}
 	h1 {
 		position: absolute;
@@ -171,10 +173,11 @@ figure {
 		h3 {
 			margin: 0 0 20px;
 			padding: 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
 		}
 		p {
-			font-size: 14px;
-			line-height: 1.75;
+			font-size: 20px;
 		}
 		card-link {
 			position: relative;
@@ -190,6 +193,18 @@ figure {
 			font-size: 14px;
 		}
 	}
+}
+
+// users uploaded superpowers card
+
+.yours{
+  border-style: solid;
+  border-color: $bright-color;
+}
+
+.yours:hover{
+  border-style: solid;
+  border-color: $primary-contrast;
 }
 
 // SHOW PAGE HUGE CARD

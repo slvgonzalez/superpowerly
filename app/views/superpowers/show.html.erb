@@ -1,8 +1,12 @@
 <%# navbar ------- %>
 <%# do not delete these 3 lines --------%>
 
-<% btn_toggle = controller_name == "bookings"  ? %w[main-button d-none] : %w[main-button] %>
-<% btn_toggle = current_user.id == @superpower.user_id  ? %w[main-button d-none] : %w[main-button] %>
+<% if controller_name == "bookings" || current_user.id == @superpower.user_id %>
+  <% btn_toggle = %w[main-button d-none]%>
+<% else %>
+  <% btn_toggle = %w[main-button]%>
+<% end %>
+
 <% form_toggle = controller_name == "bookings" ? "align-self-end mb-5" : "align-self-end mb-5 d-none" %>
 
   <%# do not delete data-controller--------%>
@@ -30,17 +34,15 @@
           </div>
           <%= link_to "Back", superpowers_path, class: "link" %>
         </div>
+        <div class="booking-form-container">
+          <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.submit "Add Booking", class:"btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
       <%# do not delete this button --------%>
       <%#-----------------%>
     </div>
-
-
-    <%# do not delete this form --------%>
-    <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
-      <%= f.input :start_date, as: :date %>
-      <%= f.input :end_date, as: :date %>
-      <%= f.submit "Add Booking", class:"btn btn-primary" %>
-    <% end %>
-    <%#-----------------%>
 </div>
