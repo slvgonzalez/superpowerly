@@ -12,10 +12,36 @@
   </div>
 </div>
 
-<div class="text-center p-3 mt-3">
-  <p> <%= link_to "Create a Superpower", new_superpower_path, class: "link" %> </p>
-</div>
 <div class="main-container">
+  <% if !@superpowers.empty? %>
+  <div class="msg-container w-100 text-center">
+    <div class="p-3 mt-3 message">
+      <h2> <%= @message %> </h2>
+    </div>
+    <div class="text-center p-3 mt-3">
+      <p> <%= link_to "Create a Superpower", new_superpower_path, class: "link" %> </p>
+    </div>
+  </div>
+    <div class="cards">
+      <% @superpowers.each do |superpower| %>
+        <% if current_user.id == superpower.user_id %>
+          <%= link_to superpower_path(superpower) do %>
+            <figure class="image-card yours">
+              <% if superpower.photo.attached? %>
+                <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
+              <% end %>
+              <figcaption>
+                <h3> <%=superpower.name.capitalize  %> </h3>
+                <span class="card-tag tag-purple"> <%= superpower.category %> </span>
+              </figcaption>
+            </figure>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
   <% if @superpowers.empty? %>
     <h2> No superpowers found :( </h2>
   <%else%>
@@ -41,31 +67,5 @@
         <% end %>
       <% end %>
     </div>
-  <% if !@superpowers.empty? %>
-  <div class="msg-container w-100 text-center">
-    <div class="p-3 mt-3">
-      <h2> <%= @message %> </h2>
-    </div>
-  </div>
-    <div class="cards">
-      <% @superpowers.each do |superpower| %>
-        <% if current_user.id == superpower.user_id %>
-          <%= link_to superpower_path(superpower) do %>
-            <figure class="image-card yours">
-              <% if superpower.photo.attached? %>
-                <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <img src="https://source.unsplash.com/71u2fOofI-U/300x510" />
-              <% end %>
-              <figcaption>
-                <h3> <%=superpower.name.capitalize  %> </h3>
-                <span class="card-tag tag-purple"> <%= superpower.category %> </span>
-              </figcaption>
-            </figure>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
   <% end %>
 </div>
