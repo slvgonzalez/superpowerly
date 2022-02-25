@@ -12,7 +12,9 @@ class SuperpowersController < ApplicationController
       id = current_user.id
       if Superpower.find_by(user_id: id)
         @message = "Some powers you are renting out like the sell-out you are:"
+        @ord = 1
       else
+        @ord = 2
         @message = "We all have superpowers, yours could be on this list too!"
       end
     end
