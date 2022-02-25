@@ -209,53 +209,56 @@ figure {
 
 // SHOW PAGE HUGE CARD
 .show-card {
-  width: 60%;
-  margin-left: 20px;
-  margin-top: 3rem;
+  width: 80%;
+  margin-top: 4rem;
   margin-bottom: 15px;
   overflow: hidden;
   background: $background-color;
   box-shadow: 0 0 15px rgba(58, 58, 58, 0.2);
   border-style: solid;
   border-color: $secondary-contrast;
-  padding: 1rem;
+  padding: 3rem;
+  display: flex;
 }
 .show-card img{
-  width: 70%;
+  width: 50%;
   object-fit: cover;
+  margin-right: 2rem;
+}
+
+.show-card-text {
+  padding-left: 25px;
 }
 
 .show-card h2 {
   font-size: 36px;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 15px;
   color: $secondary-contrast;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 .show-card p {
+  font-size: 20px;
+  margin: 0;
+  color: $primary-contrast;
+  margin-bottom: 1rem;
+}
+
+.reviews {
   font-size: 20px;
   opacity: .7;
   margin: 0;
   color: $primary-contrast;
 }
 
-
-.show-card .show-card-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.show-card-infos center{
   position: relative;
+  right: 3rem;
 }
 
-.show-card-infos .show-card-user {
-  position: absolute;
-  right: 16px;
-  top: -40px;
-  width: 30px;
-  margin-right: 5px;
-}
 
 // CARDS FOR BOOKINGS
 
