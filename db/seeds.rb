@@ -39,6 +39,7 @@ end
 super_fast = Superpower.create!(
   name: "Super speed",
   price: 50,
+  rating: rand(1.0..5.0).floor(1),
   category: "transportation",
   description: "Gives you the abilities to do everything 10 times faster!⚡️ You can even try to finish your code on time before the presentation! Never be late to an appointment, be front row at all of your concerts and beat Usain Bolt!",
   user_id: users.sample)
@@ -48,6 +49,7 @@ superpower = Superpower.create!(
   name: "Invisibility",
   price: 180,
   category: "almighty\ powers",
+  rating: rand(1.0..5.0).floor(1),
   description: "Tired of being poor? Tired of sitting in Economy? Become invisible. Go inside the Bank of England and take what you please. Never pay for a First Class ticket, sit in there for the price of this Super Power!",
   user_id: users.sample)
 file = URI.open("https://res.cloudinary.com/dhcoxs18m/image/upload/v1645626744/vi5sje2kk3agl6ttbxg1.webp")
@@ -56,6 +58,7 @@ super_smell = Superpower.create!(
   name: "Super smell",
   price: 20,
   category: "enhancements",
+  rating: rand(1.0..5.0).floor(1),
   description: "Can smell things from miles away. Do you wish you could smell a lie? Smell stress (unless you bought Stress Less)? With your newfound sense of smell, you can smell emotions from miles and miles away.
 ",
   user_id: users.sample)
@@ -64,6 +67,7 @@ super_smell.photo.attach(io: file, filename: 'test.png', content_type: 'image/pn
 super_strength = Superpower.create!(
   name: "Super strength",
   price: 90,
+  rating: rand(1.0..5.0).floor(1),
   category: "enhancements",
   description: "Gives the wielder super human strength",
   user_id: users.sample)
@@ -72,6 +76,7 @@ super_strength.photo.attach(io: file, filename: 'test.png', content_type: 'image
 elasticity = Superpower.create!(
   name: "elasticity",
   price: 60,
+  rating: rand(1.0..5.0).floor(1),
   category: "enhancements",
   description: "Can stretch the human body to extreme lengths. Annoyed you can't reach the vodka on the top shelf? Infuriated that you can't get your food from the comfort of your couch? Become flexible. The sky is the limit!",
   user_id: users.sample)
@@ -80,6 +85,7 @@ elasticity.photo.attach(io: file, filename: 'test.jpg', content_type: 'image/jpg
 super_flight = Superpower.create!(
   name: "super flight",
   price: 80,
+  rating: rand(1.0..5.0).floor(1),
   category: "transportation",
   description: "Gives the wielder the ability to fly through the skys at supersonic speed.  It's annoying that we can't fly to Vegas every time we want to have a good night out... oh wait! With Super Flight, you can go anywhere, anytime, and the best part is you don't contribute to carbon emissions!",
   user_id: users.sample)
@@ -88,7 +94,8 @@ super_flight.photo.attach(io: file, filename: 'test.jpg', content_type: 'image/j
 stress_less = Superpower.create!(
   name: "stress less",
   price: 80,
-  category: "mental\ powers",
+  rating: rand(1.0..5.0).floor(1),
+  category: "mental powers",
   description: "helps the wielder to stress less in hard situations",
   user_id: users.sample)
 file = URI.open("https://executivesupportmagazine.com/wp-content/uploads/2021/02/ii.-Marsha-Egan-Stress-Mess-to-Stress-Less-736-2048x1448.jpg")
