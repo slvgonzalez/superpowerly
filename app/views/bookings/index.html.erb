@@ -1,21 +1,32 @@
 
-<div class="bookings-container">
-  <h1> Your bookings: </h1>
-    <% if @bookings.empty? %>
-      <div class="mx-3 my-5 p-3">
-        <h3> - You have no bookings at this time </h3>
-      </div>
-    <% else %>
-    <% @bookings.each do |booking| %>
-    <div class="card-product">
-      <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
-      <div class="card-product-infos">
-        <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
-        <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
-        <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
-      </div>
+
+<%# <% if controller_name == "bookings" %>
+  <%# <div class="message mt-3 p-5"> <%raise %> </div>
+<%# <% else %> %> %> %>
+  <div class="bookings-container">
+    <div class="d-flex justify-content-between">
+      <h1> Your bookings </h1>
+      <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
     </div>
-    <% end %>
-    <% end %>
-  <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
-</div>
+      <% if @bookings.empty? %>
+        <div class="mx-3 my-5 p-3">
+          <h3> - You have no bookings at this time </h3>
+        </div>
+      <% else %>
+        <% @bookings.each do |booking| %>
+          <div class="card-product">
+            <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
+            <div class="card-product-infos">
+              <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
+              <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
+              <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
+            </div>
+          </div>
+        <% end %>
+        <div class="disclaimer-box">
+          <a class="disclaimer"> "with great power comes great responsibility"</a>
+          <h3>This means Superpowerly is not liable for:</h3>
+          <p>- Any loss or damages caused by superpowers</p>
+        </div>
+      <% end %>
+  </div>

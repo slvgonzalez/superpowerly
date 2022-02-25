@@ -282,6 +282,22 @@ figure {
 .card-product {
   overflow: hidden;
   height: 120px;
+  width: 60%;
+  background: $background-color;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  color: $primary-contrast;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-color: $secondary-contrast;
+}
+
+.card-product:hover {
+  overflow: hidden;
+  height: 120px;
+  width: 60%;
   background: $background-color;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -289,7 +305,8 @@ figure {
   color: $primary-contrast;
   margin-top: 30px;
   border-style: solid;
-  border-color: $secondary-contrast;
+  border-width: 2px;
+  border-color: $primary-contrast;
 }
 
 .card-product img {
