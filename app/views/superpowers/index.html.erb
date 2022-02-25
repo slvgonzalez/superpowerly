@@ -30,7 +30,7 @@
             <% end %>
             <figcaption>
               <h3> <%=superpower.name.capitalize  %> </h3>
-              <p><%= superpower.description %></p>
+              <p>from £<%= superpower.price %></p>
               <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
             </figcaption>
           </figure>
@@ -46,8 +46,7 @@
     <div class="cards">
       <% @superpowers.each do |superpower| %>
         <% if current_user.id == superpower.user_id %>
-          <figure class="image-card">
-            <h1><%= superpower.name %></h1>
+          <figure class="image-card yours">
             <% if superpower.photo.attached? %>
               <%= cl_image_tag superpower.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
@@ -55,7 +54,7 @@
             <% end %>
             <figcaption>
               <h3> <%=superpower.name.capitalize  %> </h3>
-              <p><%= superpower.description %></p>
+              <span class="card-tag tag-purple"> <%= superpower.category %> </span>
               <%= link_to "See details", superpower_path(superpower), class:"card-link" %>
             </figcaption>
           </figure>
