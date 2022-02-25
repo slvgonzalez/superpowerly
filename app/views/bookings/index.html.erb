@@ -1,37 +1,28 @@
-
-
 <div class="bookings-container">
   <h1> Your bookings </h1>
-    <% @bookings.each do |booking| %>
-    <div class="card-product">
-      <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
-      <div class="card-product-infos">
-        <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
-        <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
-        <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
-        <p> <%= "Total price: £#{(booking.end_date-booking.start_date).to_i * (booking.superpower.price)}" %>
-        <p><%= link_to "Cancel this booking", booking_path(booking), method:"delete", class:"link", data:{confirm: "Are you sure?"} %></p>
+    <% if @bookings.empty? %>
+      <div class="mx-3 my-5 p-3">
+        <h3> - You have no bookings at this time </h3>
       </div>
-    </div>
-      <% if @bookings.empty? %>
-        <div class="mx-3 my-5 p-3">
-          <h3> - You have no bookings at this time </h3>
-        </div>
-      <% else %>
-        <% @bookings.each do |booking| %>
-          <div class="card-product">
-            <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
-            <div class="card-product-infos">
-              <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
-              <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
-              <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
-            </div>
+      <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
+    <% else %>
+      <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+          <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
+          <div class="card-product-infos">
+            <h2><%= link_to booking.superpower.name, superpower_path(booking.superpower), class:"link" %></h2>
+            <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
+            <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
+            <p> <%= "Total price: £#{(booking.end_date-booking.start_date).to_i * (booking.superpower.price)}" %>
+            <p><%= link_to "Cancel this booking", booking_path(booking), method:"delete", class:"link", data:{confirm: "Are you sure?"} %></p>
           </div>
-        <% end %>
-        <div class="disclaimer-box">
-          <a class="disclaimer"> "with great power comes great responsibility"</a>
-          <h3>This means Superpowerly is not liable for:</h3>
-          <p>- Any loss or damages caused by superpowers</p>
         </div>
       <% end %>
-  </div>
+      <div class="disclaimer-box">
+        <a class="disclaimer"> "with great power comes great responsibility"</a>
+        <h3>This means Superpowerly is not liable for:</h3>
+        <p>- Any loss or damages caused by superpowers</p>
+      </div>
+    <% end %>
+</div>
