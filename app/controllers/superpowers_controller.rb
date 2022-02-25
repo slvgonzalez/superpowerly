@@ -32,6 +32,7 @@ class SuperpowersController < ApplicationController
     # we need `user_id` to associate superpower with corresponding user?
     @user = current_user
     @superpower.user = @user
+    @superpower.rating = 1.0
     if @superpower.save!
       redirect_to superpower_path(@superpower)
     else
@@ -42,6 +43,6 @@ class SuperpowersController < ApplicationController
   private
 
   def superpower_params
-    params.require(:superpower).permit(:name, :price, :description, :category, :photo)
+    params.require(:superpower).permit(:name, :price, :description, :category, :photo, :rating)
   end
 end
