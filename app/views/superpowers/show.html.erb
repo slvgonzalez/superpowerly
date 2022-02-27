@@ -40,9 +40,9 @@
               <li> <%= message %></li>
               <% end %>
             </ul>
-            <%= f.input :start_date, as: :date, class: "form-actions", html5: true  %>
-            <%= f.input :end_date, as: :date, class: "form-actions", html5: true %>
-            <%= f.submit "Add Booking", class:"btn btn-primary", data: { confirm: "Booking successful!"} %>
+            <%= f.input :start_date, as: :date, html5: true  %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.submit "Add Booking", class:"btn btn-primary" %>
           <% end %>
         </div>
         <%= link_to "Back", superpowers_path, class: "link" %>

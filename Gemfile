@@ -70,3 +70,4 @@ gem 'devise'
 # Claudinary
 # Security
 gem 'dotenv-rails', groups: [:development, :test]
+gem "js-routes"

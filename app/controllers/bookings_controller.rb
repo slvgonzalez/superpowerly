@@ -3,6 +3,15 @@ class BookingsController < ApplicationController
     if user_signed_in?
       @user = current_user
       @bookings = Booking.where(user_id: @user)
+      if params[:id].present?
+        @booking = Booking.find(params[:id])
+        days = (@booking.end_date - @booking.start_date).to_i
+        date = @booking.start_date.strftime("%d/%m/%Y")
+        word = days > 1 ? "days" : "day"
+        @cost = days * @booking.superpower.price
+        @message = "Congratulations! You are now a wielder of #{@booking.superpower.name.capitalize} for #{days} #{word}, starting from #{date}!"
+        flash[:success] = @message
+      end
     else
       redirect_to superpowers_path
     end
@@ -22,7 +31,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     if @booking.save
       @user = current_user
-      redirect_to bookings_path
+      redirect_to bookings_path(id: @booking.id)
     else
       render 'superpowers/show'
     end
