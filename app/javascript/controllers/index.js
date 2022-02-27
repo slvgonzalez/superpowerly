@@ -32,6 +32,5 @@ modal.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    window.location = bookings_path;
   }
 }
