@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validate :start_date_cannot_be_in_the_past, :start_date_not_after_end_date, :superpower_user_id_not_the_same_as_user_id
+  validate :start_date_cannot_be_in_the_past, :start_date_not_after_end_date, :superpower_user_id_not_the_same_as_user_id, :superpower_already_booked
   # validates :end_date, comparison: { greater_than: :start_date }
   # validates :start_date, comparison: { greater_than: Date.now }
   def start_date_not_after_end_date
@@ -20,22 +20,19 @@ class Booking < ApplicationRecord
   end
 
   def superpower_user_id_not_the_same_as_user_id
-    if user_id == superpower[:user_id]
-      errors.add("you can't rent from yourself")
-    end
+    errors.add("you can't rent from yourself") if user_id == superpower[:user_id]
   end
 
   def superpower_already_booked
     sup = superpower.bookings.map do |book|
-      (book.start_date..book.end_date)
+      (book.start_date..book.end_date).to_a
     end
-    bool = sup.none? do |date_range|
-      (start_date..end_date).to_a.each do |date|
+    bool = sup.any? do |date_range|
+      (start_date..end_date).to_a.any? do |date|
         date_range.include?(date)
       end
     end
-    if bool == false
-      errors.add(:superpower, "is already booked for this period :(")
-    end
+    errors.add(:start_date, "superpower unavailable for this time period :(") if bool == true
+    errors.add(:end_date, "superpower unavailable for this time period :(") if bool == true
   end
 end
