@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validate :start_date_cannot_be_in_the_past, :start_date_not_after_end_date, :superpower_user_id_not_the_same_as_user_id, :superpower_already_booked
+  validate :start_date_cannot_be_in_the_past, :start_date_not_after_end_date, :superpower_user_id_not_the_same_as_user_id
   # validates :end_date, comparison: { greater_than: :start_date }
   # validates :start_date, comparison: { greater_than: Date.now }
   def start_date_not_after_end_date
