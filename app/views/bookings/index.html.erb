@@ -1,4 +1,24 @@
 <div class="bookings-container">
+  <% if params[:id].present? %>
+    <% if @booking.user_id == current_user.id %>
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Booking successful!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <%= @message %>
+                <p> <%="Total cost: £#{@cost}" %> </p>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <h1> Your bookings </h1>
     <% if @bookings.empty? %>
       <div class="mx-3 my-5 p-3">
