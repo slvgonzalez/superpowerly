@@ -27,7 +27,7 @@
       <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
     <% else %>
       <%= link_to "Find another superpower to rent", superpowers_path, class:"main-button" %>
-      <% @bookings.each do |booking| %>
+      <% @bookings.reverse.each do |booking| %>
         <div class="card-product">
           <img src="https://ak.picdn.net/shutterstock/videos/1027613123/thumb/3.jpg"/>
           <div class="card-product-infos">
