@@ -8,29 +8,20 @@ const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
 
-// Get the modal
 const modal = document.querySelector(".modal");
 
-// // Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
+if ((location.pathname + location.search).includes('/bookings?no=')) {
+  document.addEventListener("DOMContentLoaded", function() {
+    modal.style.display = "block";
+    modal.classList.add("show");
+  });
 
-// Get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-window.onload = function() {
-  modal.style.display = "block";
-  modal.classList.add("show");
-}
-
-// When the user clicks on <span> (x), close the modal
-modal.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  modal.onclick = function() {
+    this.style.display = "none";
   }
 }

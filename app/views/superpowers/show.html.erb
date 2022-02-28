@@ -1,5 +1,5 @@
-<%# navbar ------- %>
-<%# do not delete these 3 lines --------%>
+
+<%# do not delete these lines --------%>
 
 <% if controller_name == "bookings" || current_user.id == @superpower.user_id %>
   <% btn_toggle = %w[main-button d-none]%>
@@ -14,7 +14,6 @@
   <%#-----------------%>
     <div class="show-card">
       <% if @superpower.photo.attached? %>
-      <%#------set up height for the image --------%>
         <%= cl_image_tag @superpower.photo.key %>
       <% else %>
         <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
@@ -35,11 +34,6 @@
         <a class="<%=btn_toggle.join(" ")%> center" data-toggle-form-target="button" data-action="click->toggle-form#toggleForm">Rent this superpower!</a>
         <div class="booking-form-container">
           <%= simple_form_for [@superpower, @booking], html: { class: form_toggle, data: {toggle_form_target: "form"}} do |f| %>
-            <ul>
-              <% @booking.errors.full_messages.each do |message| %>
-              <li> <%= message %></li>
-              <% end %>
-            </ul>
             <%= f.input :start_date, as: :date, html5: true  %>
             <%= f.input :end_date, as: :date, html5: true %>
             <%= f.submit "Add Booking", class:"btn btn-primary" %>
@@ -47,7 +41,5 @@
         </div>
         <%= link_to "Back", superpowers_path, class: "link" %>
       </div>
-      <%# do not delete this button --------%>
-      <%#-----------------%>
     </div>
 </div>
