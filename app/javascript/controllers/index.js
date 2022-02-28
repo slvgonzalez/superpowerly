@@ -10,17 +10,18 @@ application.load(definitionsFromContext(context))
 
 const modal = document.querySelector(".modal");
 
-window.onload = function() {
-  modal.style.display = "block";
-  modal.classList.add("show");
-}
+if ((location.pathname + location.search).includes('/bookings?no=')) {
+  document.addEventListener("DOMContentLoaded", function() {
+    modal.style.display = "block";
+    modal.classList.add("show");
+  });
 
-modal.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  modal.onclick = function() {
+    this.style.display = "none";
   }
 }
