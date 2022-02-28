@@ -1,5 +1,5 @@
-<%# navbar ------- %>
-<%# do not delete these 3 lines --------%>
+
+<%# do not delete these lines --------%>
 
 <% if controller_name == "bookings" || current_user.id == @superpower.user_id %>
   <% btn_toggle = %w[main-button d-none]%>
@@ -14,7 +14,6 @@
   <%#-----------------%>
     <div class="show-card">
       <% if @superpower.photo.attached? %>
-      <%#------set up height for the image --------%>
         <%= cl_image_tag @superpower.photo.key %>
       <% else %>
         <img src="https://i.pinimg.com/originals/f0/7d/1a/f07d1a629b65a9ab5514f6365f627e16.jpg" />
@@ -47,7 +46,5 @@
         </div>
         <%= link_to "Back", superpowers_path, class: "link" %>
       </div>
-      <%# do not delete this button --------%>
-      <%#-----------------%>
     </div>
 </div>

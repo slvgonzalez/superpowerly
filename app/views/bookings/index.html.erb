@@ -1,5 +1,5 @@
 <div class="bookings-container">
-  <% if params[:id].present? %>
+  <% if params[:no].present? %>
     <% if @booking.user_id == current_user.id %>
       <div class="modal">
         <div class="modal-dialog">
@@ -35,7 +35,7 @@
             <p> <%= "Rented from #{booking.superpower.user.username}" %> </p>
             <p> <%= "Dates: from #{booking.start_date} to #{booking.end_date}" %> </p>
             <p> <%= "Total price: £#{(booking.end_date-booking.start_date).to_i * (booking.superpower.price)}" %>
-            <p><%= link_to "Cancel this booking", booking_path(booking), method:"delete", class:"link", data:{confirm: "Are you sure?"} %></p>
+            <p><%= link_to "Cancel this booking", booking_path(booking), method:"DELETE", class:"link", data:{confirm: "Are you sure?"} %></p>
           </div>
         </div>
       <% end %>
